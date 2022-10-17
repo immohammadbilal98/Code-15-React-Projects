@@ -1,8 +1,13 @@
 import React from "react";
 import { useState } from "react/cjs/react.development";
 
-const Tour = ({ id, image, info, price, name, removeTours }) => {
+const ToursItem = ({ id, image, info, price, name, removeTours }) => {
   const [readMore, setReadMore] = useState(false);
+
+  const RemoveToursHandler = () => {
+    removeTours(id);
+    console.log(id)
+  };
 
   return (
     <article className="single-tour">
@@ -18,7 +23,7 @@ const Tour = ({ id, image, info, price, name, removeTours }) => {
             {readMore ? "Show Less..." : "Read More..."}
           </button>
         </p>
-        <button className="delete-btn" onClick={() => removeTours(id)}>
+        <button className="delete-btn" onClick={RemoveToursHandler}>
           Not Interested
         </button>
       </footer>
@@ -26,4 +31,4 @@ const Tour = ({ id, image, info, price, name, removeTours }) => {
   );
 };
 
-export default Tour;
+export default ToursItem;

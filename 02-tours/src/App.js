@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Loading from "./Loading";
-import Tours from "./Tours";
+import ToursList from "./ToursList";
 
 const url = "https://course-api.com/react-tours-project";
 
@@ -14,16 +14,24 @@ function App() {
     setTours(newTours);
   };
 
-  // const emptyTours = (id) => {
-  //   if()
-  // }
+  useEffect(() => {
+    console.log("RUNNING....")
+    fetchtours();
+
+    return () => {
+      console.log('EFFECT CLEANUP');
+    };
+  }, []);
+
 
   const fetchtours = async () => {
     setLoading(true);
 
     try {
       const response = await fetch(url); //API From Tour  Data
+      // console.log(response);
       const tours = await response.json();
+      // console.log(tours)
       setLoading(false);
       setTours(tours);
     } catch (err) {
@@ -31,10 +39,6 @@ function App() {
       console.log(err);
     }
   };
-
-  useEffect(() => {
-    fetchtours(); //Show list of tour From API
-  }, []);
 
   if (loading)
     return (
@@ -57,7 +61,7 @@ function App() {
 
   return (
     <main>
-      <Tours tours={tours} removeTours={removeTours} />
+      <ToursList tours={tours} removeTours={removeTours} />
     </main>
   );
 }

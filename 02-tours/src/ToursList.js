@@ -1,7 +1,7 @@
 import React from "react";
-import Tour from "./Tour";
+import ToursItem from "./ToursItem";
 
-const Tours = ({ tours, removeTours }) => {
+const ToursList = ({ tours, removeTours }) => {
   return (
     <section>
       <div className="title">
@@ -11,7 +11,7 @@ const Tours = ({ tours, removeTours }) => {
       <div>
         {tours.map((tour) => {
           return (
-            <Tour key={tour.id} {...tour} removeTours={removeTours}></Tour>
+            <ToursItem key={tour.id} {...tour} removeTours={removeTours}></ToursItem>
           );
         })}
       </div>
@@ -19,4 +19,4 @@ const Tours = ({ tours, removeTours }) => {
   );
 };
 
-export default Tours;
+export default ToursList;
