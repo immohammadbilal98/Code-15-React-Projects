@@ -6,12 +6,16 @@ const Review = () => {
   const [index, setIndex] = useState(0);
   const { name, job, image, text } = people[index];
 
-  //Work for next and previous index
+  //Button: Next and Previous Index
   const checkNumber = (num) => {
+    console.log("Current Number: " + num)
+    console.log("People Length: " + people.length)
     if (num > people.length - 1) return 0;
     if (num < 0) return people.length - 1;
     return num;
   };
+  console.log("Index:" + index)
+  console.log(checkNumber(index))
 
   //Next Person
   const nextPerson = () => {
