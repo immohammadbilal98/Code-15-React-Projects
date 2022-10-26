@@ -1,5 +1,5 @@
 /*
-=============== 
+===============
 Variables
 ===============
 */
@@ -44,7 +44,7 @@ Variables
   --fixed-width: 620px;
 }
 /*
-=============== 
+===============
 Global Styles
 ===============
 */
@@ -151,7 +151,7 @@ p {
 }
 
 /*
-=============== 
+===============
 Jobs
 ===============
 */
@@ -263,5 +263,8 @@ Jobs
   color: var(--clr-primary-1);
   background: var(--clr-primary-8);
 }
-.center-btn {
+span {
+  font-size: 10px;
+  color: rgb(52, 9, 245);
+  text-decoration: dotted;
 }

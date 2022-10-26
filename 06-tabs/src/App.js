@@ -8,6 +8,13 @@ function App() {
   const [jobs, setJob] = useState([]);
   const [value, setValue] = useState(0);
 
+  console.log(jobs)
+
+  //Showing API:
+  useEffect(() => {
+    fetchJob();
+  }, []);
+
   //Working for API:
   const fetchJob = async () => {
     const response = await fetch(url);
@@ -15,11 +22,6 @@ function App() {
     setJob(newjob);
     setLoading(false);
   };
-
-  //Showing API:
-  useEffect(() => {
-    fetchJob();
-  }, []);
 
   //If Loading is True:
   if (loading) {
@@ -42,10 +44,12 @@ function App() {
             return (
               <button
                 key={item.id}
-                onClick={() => setValue(index)}
                 className={`job-btn ${index === value && "active-btn"}`}
+                onClick={() => setValue(index)}
               >
                 {item.company}
+                <br />
+                <span>Index:{index}-Value:{value}</span>
               </button>
             );
           })}
